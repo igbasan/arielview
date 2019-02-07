@@ -21,11 +21,9 @@ export default class UploadResult extends Component  {
 	render() {
 		return(
 			<View style={styles.container}>
-				<Logo/>
+		
 				
 				<View style={styles.signupTextCont}>
-					<Text style={styles.signupText}>Don't have an account yet?</Text>
-					<TouchableOpacity onPress={this.signup}><Text style={styles.signupButton}> Signup</Text></TouchableOpacity>
 				</View>
 			</View>	
 			)

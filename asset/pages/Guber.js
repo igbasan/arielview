@@ -1,36 +1,121 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text,
+  
+  ScrollView,
   View,
   StatusBar ,
+  FlatList,
+  
   TouchableOpacity
 } from 'react-native';
+import { Image } from 'react-native';
 
-import Logo from '../components/Logo';
+import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 
+import guberData from '../data/guber';
+//import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
+
+
+import thumbnail from '../images/thumbnail.jpeg';
 
 import {Actions} from 'react-native-router-flux';
 
 export default class Guber extends Component  {
 
+  constructor(props){
+    super(props);
+    this.state={
+      results:[],
+      tableHead:['State', 'Leader', 'RunnerUp', '2nd RunnerUp']
+    }
+  }
 	signup() {
 		Actions.signup()
 	}
 
+  componentDidMount(){
+   // console.log(guberData);
+    //this.setState({ results: guberData });
+   
+   // console.log(this.state.results);
+    this.setState({
+      results: guberData 
+    },()=>{});
+   // console.log(guberData);
+  
+
+  }
+  getData(){
+    /*
+      fetch('../data/presidency.json')
+      .then(results=>results.json())
+      .then(results=>this.setState({'data':results}));
+*/
+
+  };
+  
 	render() {
+
+  console.log(this.state.results);
+  console.log('this.state.results');
+  console.log(this.state.results);
+  
+   
+   let resultData = this.state.results.map(function(rdata,index){
+    return (
+      <Card>
+        <CardItem>
+            <Left>
+                    <Thumbnail source={{uri: this.thumbnail}} />
+                    
+                    <Body>
+                      <Text>{rdata.Owner}</Text>
+                      <Text>Leader {rdata.Winner}</Text>
+                    </Body>
+          </Left>
+          <Right>
+              <Text>Second {rdata.RunnerUp}</Text>
+          </Right>
+        </CardItem>
+
+        <CardItem>
+              <Left>
+                
+                
+                 <Text>Third {rdata.SecondRunnerUp}</Text>
+                            
+              </Left>
+              
+              <Right>
+                <Text>Last Update :12:12:30 a.m.</Text>
+              </Right>
+            </CardItem>
+
+      </Card>
+    )
+    
+  });
 		return(
-			<View style={styles.container}>
-				<Logo/>
-				
-				<View style={styles.signupTextCont}>
-					<Text style={styles.signupText}>Don't have an account yet?</Text>
-					<TouchableOpacity onPress={this.signup}><Text style={styles.signupButton}> Signup</Text></TouchableOpacity>
-				</View>
-			</View>	
+<Container>
+        <Header />
+        <Content>
+        
+        
+          {resultData}
+        </Content>
+      </Container>
+
+     
 			)
 	}
 }
+
+const tablestyles = StyleSheet.create({
+  container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
+  head: { height: 40, backgroundColor: '#f1f8ff' },
+  text: { margin: 6 }
+});
 
 const styles = StyleSheet.create({
   container : {
@@ -38,6 +123,28 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems:'center',
     justifyContent :'center'
+    
+  },
+  table:{
+    borderColor: '#C1C0B9',
+    backgroundColor:'green',
+    alignItems:'flex-end',
+    justifyContent :'center',
+    width:'100%',
+    height:'100%',
+
+  },
+  header:{
+    width:'100%',
+    backgroundColor:'green',
+    
+
+  },
+  item:{
+    width:'100%',
+    backgroundColor:'green',
+    
+
   },
   signupTextCont : {
   	flexGrow: 1,

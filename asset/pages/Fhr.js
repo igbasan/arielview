@@ -13,7 +13,7 @@ import { Image } from 'react-native';
 
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 
-import presidentialData from '../data/president';
+import fhrData from '../data/fhr';
 //import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 
 
@@ -21,7 +21,7 @@ import thumbnail from '../images/thumbnail.jpeg';
 
 import {Actions} from 'react-native-router-flux';
 
-export default class Presidency extends Component  {
+export default class FHR extends Component  {
 
   constructor(props){
     super(props);
@@ -30,19 +30,17 @@ export default class Presidency extends Component  {
       tableHead:['State', 'Leader', 'RunnerUp', '2nd RunnerUp']
     }
   }
-	signup() {
-		Actions.signup()
-	}
+
 
   componentDidMount(){
-   // console.log(presidentialData);
-    //this.setState({ results: presidentialData });
+   // console.log(fhrData);
+    //this.setState({ results: fhrData });
    
    // console.log(this.state.results);
     this.setState({
-      results: presidentialData 
+      results: fhrData 
     },()=>{});
-   // console.log(presidentialData);
+   // console.log(fhrData);
   
 
   }

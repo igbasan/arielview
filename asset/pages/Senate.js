@@ -13,7 +13,7 @@ import { Image } from 'react-native';
 
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 
-import presidentialData from '../data/president';
+import senateData from '../data/senate';
 //import { Table, TableWrapper, Row, Rows, Col, Cols, Cell } from 'react-native-table-component';
 
 
@@ -21,7 +21,7 @@ import thumbnail from '../images/thumbnail.jpeg';
 
 import {Actions} from 'react-native-router-flux';
 
-export default class Presidency extends Component  {
+export default class Senate extends Component  {
 
   constructor(props){
     super(props);
@@ -35,14 +35,14 @@ export default class Presidency extends Component  {
 	}
 
   componentDidMount(){
-   // console.log(presidentialData);
-    //this.setState({ results: presidentialData });
+   // console.log(senateData);
+    //this.setState({ results: senateData });
    
    // console.log(this.state.results);
     this.setState({
-      results: presidentialData 
+      results: senateData 
     },()=>{});
-   // console.log(presidentialData);
+   // console.log(senateData);
   
 
   }

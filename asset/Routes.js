@@ -23,7 +23,7 @@ export default class Routes extends Component {
 			    <Scene key="login" component={Login} title="Login" />
 				<Scene key="presidency" component={Presidency} title="Presidential Data" />
 				<Scene key="uploadresult" component={UploadResult} title="Upload Result" />
-				<Scene key="generaltats" component={GeneralStats} title="General Stats" />
+				<Scene key="generalstats" component={GeneralStats} title="General Stats" />
 				<Scene key="guber" component={Guber} title="Gubernatorial Data" />
 				<Scene key="nass" component={NASS} title="NASS Data" />
 				<Scene key="messaging" component={Messaging} title="Login" />
